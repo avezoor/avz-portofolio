@@ -1,0 +1,181 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<!-- Profile Section -->
+<section id="profile" class="section">
+    <div class="container">
+        <div class="profile-card">
+            <div class="row align-items-center">
+                <div class="col-md-4 text-center">
+                    <img src="{{ url_for('static', filename='images/me.jpg') }}" alt="Profile" class="profile-image mb-3">
+                </div>
+                <div class="col-md-8">
+                    <h1>{{ profile.name }}</h1>
+                    <h3 class="text-primary">{{ profile.title }}</h3>
+                    <p style="text-align: justify;">{{ profile.description }}</p>
+                    <div class="badges mb-3">
+                        {% for badge in profile.badges %}
+                        <span class="badge">{{ badge }}</span>
+                        {% endfor %}
+                    </div>
+                    <div class="social-links">
+                        <a href="{{ profile.social.github }}"><i class="fab fa-github"></i></a>
+                        <a href="{{ profile.social.linkedin }}"><i class="fab fa-linkedin"></i></a>
+                        <a href="{{ profile.social.whatsapp }}"><i class="fab fa-whatsapp"></i></a>
+                        <a href="{{ profile.social.instagram }}"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Investment Section -->
+<section id="investments" class="section">
+    <div class="container">
+        <h2 class="mb-4">Financial Portfolio</h2>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="investment-card">
+                    <h3 class="mb-4">Financial Allocation</h3>
+                    <canvas id="investmentChart"></canvas>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="investment-card">
+                    <h3 class="mb-4">Assets Allocation</h3>
+                    {% set total_assets = investments.breakdown.values()|sum %}
+                    <div class="investment-stat">
+                        <h4>Total Assets</h4>
+                        <div class="value">IDR {{ "{:,.0f}".format(total_assets) }}</div>
+                    </div>
+                    {% for category, amount in investments.breakdown.items() %}
+                    <div class="investment-stat">
+                        <h4>{{ category|title }}</h4>
+                        <div class="value">IDR {{ "{:,.0f}".format(amount) }}</div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Experience Section -->
+<section id="experience" class="section">
+    <div class="container">
+        <h2 class="mb-4">Professional Experience</h2>
+        <div class="timeline">
+            {% for exp in experience %}
+            <div class="timeline-item">
+                <h4>{{ exp.position }}</h4>
+                <h5>{{ exp.company }}</h5>
+                <p class="text-muted">{{ exp.period }}</p>
+                <p>{{ exp.description }}</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- Education Section -->
+<section id="education" class="section">
+    <div class="container">
+        <h2 class="mb-4">Education Journey</h2>
+        <div class="education-timeline">
+            {% for edu in education %}
+            <div class="education-item">
+                <div class="education-content">
+                    <div class="education-year">{{ edu.year }}</div>
+                    <h4>{{ edu.degree }}</h4>
+                    <h5>{{ edu.institution }}</h5>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- Certifications Section -->
+<section id="certifications" class="section">
+    <div class="container">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h2>Certifications</h2>
+            <div class="search-box">
+                <input type="text" id="cert-search" class="form-control" placeholder="Search certifications...">
+            </div>
+        </div>
+        <div class="row cert-container">
+            {% for cert in certifications %}
+            <div class="col-md-6 mb-4">
+                <div class="cert-card">
+                    <h4>{{ cert.name }}</h4>
+                    <p>Issuer: {{ cert.issuer }}</p>
+                    <p>Date: {{ cert.date }}</p>
+                    <p>Certificate No: {{ cert.number }}</p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- Projects Section -->
+<section id="projects" class="section">
+    <div class="container">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h2>Current Projects</h2>
+            <div class="search-box">
+                <input type="text" id="project-search" class="form-control" placeholder="Search projects...">
+            </div>
+        </div>
+        <div class="row project-container">
+            {% for project in projects %}
+            <div class="col-md-6 mb-4">
+                <div class="project-card">
+                    <h4>{{ project.name }}</h4>
+                    <p>{{ project.description }}</p>
+                    <span class="badge bg-primary">{{ project.status }}</span>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="text-center mt-4">
+            <button id="view-more-projects" class="btn btn-outline-primary">View More</button>
+        </div>
+    </div>
+</section>
+
+<!-- Skills Section -->
+<section id="skills" class="section">
+    <div class="container">
+        <h2 class="mb-4">Technical Skills</h2>
+        <div class="row">
+            {% for skill in skills %}
+            <div class="col-md-6 mb-4">
+                <div class="skill-card">
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                        <h5 class="mb-0">{{ skill.name }}</h5>
+                        <span class="skill-percentage">{{ skill.level }}%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-level="{{ skill.level }}"></div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- Quote Section -->
+<section id="quote" class="section">
+    <div class="container">
+        <div class="quote-section text-center">
+            <i class="fas fa-quote-left fa-2x mb-3"></i>
+            <h3>{{ quote.text }}</h3>
+            <p class="mt-3">- {{ quote.author }}</p>
+        </div>
+    </div>
+</section>
+{% endblock %}
