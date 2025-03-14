@@ -88,7 +88,11 @@ PROJECTS = [
 
 SKILLS = [
     {"name": "Python", "level": 50},
-    {"name": "JavaScript/React", "level": 30},
+    {"name": "Node JS", "level": 50},
+    {"name": "R", "level": 30},
+    {"name": "Github", "level": 30},
+    {"name": "HTML + CSS", "level": 60},
+    {"name": "JavaScript", "level": 30},
     {"name": "Digital Design", "level": 85}
 ]
 
