@@ -80,9 +80,14 @@ CERTIFICATIONS = [
 
 PROJECTS = [
     {
-        "name": "Coming Soon",
-        "description": "Coming Soon",
-        "status": "Coming Soon"
+        "name": "Nobohub Infinity",
+        "description": "Nobohub is a platform designed to facilitate collaboration and idea sharing between creators and developers. The platform provides a space for users to collect, organize, and develop creative ideas together.",
+        "status": "Pending"
+    },
+    {
+        "name": "Nobohub Canvas",
+        "description": "Nobohub Canvas is a platform that brings together the thoughts of the creator or developer.",
+        "status": "Pending"
     }
 ]
 
@@ -97,7 +102,7 @@ SKILLS = [
 ]
 
 QUOTE = {
-    "text": "From Zero To Hero.",
+    "text": "From Zero to Hero and Keep Smiling in Progress.",
     "author": "Avezoor"
 }
 
