@@ -28,7 +28,7 @@ INVESTMENTS = {
     "breakdown": {
         "saving": 22000,
         "gold": 46076,
-        "crypto": 17500
+        "crypto": 42768
     }
 }
 
