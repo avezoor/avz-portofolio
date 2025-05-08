@@ -8,7 +8,7 @@ app.secret_key = os.environ.get("SESSION_SECRET", "dev_key")
 PROFILE = {
     "name": "Izzar Suly Nashrudin",
     "title": "Mathematician",
-    "description": "I am a Web Developer interested in modern technologies for building efficient and secure web applications. I also enjoy mathematics, especially in data analysis and problem-solving. Additionally, I keep up with the world of crypto, including blockchain and decentralized technologies. I was born on November 18, 2004, in Jombang, East Java, Indonesia.",
+    "description": "I am a mathematician who is interested in modern technology. I also enjoy math, especially in data analysis and problem solving. In addition, I also follow the development of the crypto world, including blockchain and decentralized technology. I was born on November 18, 2004 in Jombang, East Java, Indonesia.",
     "badges": ["Web Developer", "Mathematics", "Crypto"],
     "social": {
         "github": "https://github.com/avezoor",
@@ -26,17 +26,22 @@ INVESTMENTS = {
         "needs": None
     },
     "breakdown": {
-        "saving": 50418.86,
-        "gold": 95493,
-        "crypto": 87768
+        "saving": 526.75,
+        "gold": 32245,
     }
 }
 
 EXPERIENCE = [
     {
         "company": "HMPS Integral Matematika 2024",
-        "position": "Publishing and Journalistic",
+        "position": "Publishing and Journalism",
         "period": "Jun 2024 - Dec 2024",
+        "description": ""
+    },
+        {
+        "company": "HMPS Integral Matematika 2024",
+        "position": "Head of Publishing and Journalism",
+        "period": "Mei 2025 - Dec 2025",
         "description": ""
     }
 ]
